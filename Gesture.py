@@ -5,10 +5,10 @@ import pyautogui
 import motion as move
 
 pyautogui.FAILSAFE = False
-BaseOptions = mp.tasks.BaseOptions
-GestureRecognizer = mp.tasks.vision.GestureRecognizer
-GestureRecognizerOptions = mp.tasks.vision.GestureRecognizerOptions
-VisionRunningMode = mp.tasks.vision.RunningMode
+# BaseOptions = mp.tasks.BaseOptions
+# GestureRecognizer = mp.tasks.vision.GestureRecognizer
+# GestureRecognizerOptions = mp.tasks.vision.GestureRecognizerOptions
+# VisionRunningMode = mp.tasks.vision.RunningMode
 cap = cv2.VideoCapture(0)
 mpHands = mp.solutions.hands
 hands = mpHands.Hands(max_num_hands=1, min_detection_confidence=0.3)
@@ -59,7 +59,7 @@ while cap.isOpened():
                 landmarks.append([lmx, lmy])
                 mpDraw.draw_landmarks(frame, handslms,
                                       mpHands.HAND_CONNECTIONS)
-    cv2.imshow('Landmarked', frame)
+    cv2.imshow('Landmarks', frame)
     if cv2.waitKey(10) & 0xFF == ord('q'):
         break
 cap.release()
